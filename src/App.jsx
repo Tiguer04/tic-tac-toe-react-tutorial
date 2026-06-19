@@ -21,8 +21,8 @@ function Board({ xIsNext, squares, onPlay }) {
     }
     onPlay(nextSquares);
   }
-
-  const winner = calculateWinner(squares);
+  
+  const winner = calculateWinner(squares); // "X" or "O"
   let status;
   if (winner) {
     status = 'Ganador: ' + winner;
@@ -62,7 +62,6 @@ export default function Game() {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
-    setXIsNext(!xIsNext);
   }
 
   function jumpTo(nextMove) {
